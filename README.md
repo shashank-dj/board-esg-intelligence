@@ -122,7 +122,12 @@ This repository contains the **frontend product walkthrough**, showcasing the in
 👉 **https://docs.google.com/document/d/1QJofjPtpwGQ8jSHTaRk7pD1TKxxlYpQIq000gaJg3Qs/edit?usp=sharing**
 
 ---
+---
+## Website
 
+https://board-esg-intelligence.netlify.app/
+
+---
 ## Status
 
 This project represents a **confidential product concept**, currently in private development and early validation.
