@@ -88,6 +88,20 @@ export default function Decisions() {
     });
   };
 
+  /* -----------------------------
+     Delete decision (user only)
+  ----------------------------- */
+  const handleDelete = (id) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this decision? This action cannot be undone."
+    );
+    if (!confirmed) return;
+
+    const updated = userDecisions.filter((d) => d.id !== id);
+    saveDecisions(updated);
+  };
+
+  const isUserDecision = (id) => !id.startsWith("sample-");
   const allDecisions = [...sampleDecisions, ...userDecisions];
 
   return (
@@ -149,17 +163,29 @@ export default function Decisions() {
                   </p>
                 </div>
 
-                <span
-                  className={`text-xs px-3 py-1 rounded-full font-medium ${
-                    d.outcome === "Approved"
-                      ? "bg-green-100 text-green-700"
-                      : d.outcome === "Rejected"
-                      ? "bg-red-100 text-red-700"
-                      : "bg-yellow-100 text-yellow-700"
-                  }`}
-                >
-                  {d.outcome}
-                </span>
+                <div className="flex items-center gap-2">
+                  <span
+                    className={`text-xs px-3 py-1 rounded-full font-medium ${
+                      d.outcome === "Approved"
+                        ? "bg-green-100 text-green-700"
+                        : d.outcome === "Rejected"
+                        ? "bg-red-100 text-red-700"
+                        : "bg-yellow-100 text-yellow-700"
+                    }`}
+                  >
+                    {d.outcome}
+                  </span>
+
+                  {isUserDecision(d.id) && (
+                    <button
+                      onClick={() => handleDelete(d.id)}
+                      className="text-xs text-red-600 hover:underline"
+                      title="Delete decision"
+                    >
+                      🗑️
+                    </button>
+                  )}
+                </div>
               </div>
 
               <div className="mt-4 grid md:grid-cols-2 gap-4 text-sm text-textsub">
