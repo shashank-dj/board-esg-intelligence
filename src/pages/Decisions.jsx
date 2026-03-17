@@ -9,20 +9,16 @@ const sampleDecisions = [
     title: "Approve Renewable Energy Transition Plan",
     theme: "Environment",
     date: "2025-02-10",
-    risk: "Energy cost volatility and regulatory exposure",
     outcome: "Approved",
     confidence: "High",
-    evidence: "Management briefing and external energy risk assessment",
   },
   {
     id: "sample-2",
     title: "Delay Scope 3 Supplier Mandate",
     theme: "Environment / Supply Chain",
     date: "2024-11-18",
-    risk: "Supplier readiness and data reliability",
     outcome: "Deferred",
     confidence: "Medium",
-    evidence: "Supplier readiness review and consultant input",
   },
 ];
 
@@ -35,10 +31,8 @@ export default function Decisions() {
   const [formData, setFormData] = useState({
     title: "",
     theme: "",
-    risk: "",
     outcome: "Approved",
     confidence: "High",
-    evidence: "",
   });
 
   /* -----------------------------
@@ -81,10 +75,8 @@ export default function Decisions() {
     setFormData({
       title: "",
       theme: "",
-      risk: "",
       outcome: "Approved",
       confidence: "High",
-      evidence: "",
     });
   };
 
@@ -188,18 +180,6 @@ export default function Decisions() {
                 </div>
               </div>
 
-              <div className="mt-4 grid md:grid-cols-2 gap-4 text-sm text-textsub">
-                <div>
-                  <p className="font-medium text-textmain">Risk Considered</p>
-                  <p>{d.risk}</p>
-                </div>
-
-                <div>
-                  <p className="font-medium text-textmain">Evidence</p>
-                  <p>{d.evidence}</p>
-                </div>
-              </div>
-
               <div className="mt-4 text-xs text-textsub">
                 Confidence: <strong>{d.confidence}</strong>
               </div>
@@ -228,22 +208,6 @@ export default function Decisions() {
                 placeholder="ESG Theme (e.g. Climate, Supply Chain)"
                 className="w-full border rounded p-2 text-sm"
                 value={formData.theme}
-                onChange={handleChange}
-              />
-
-              <textarea
-                name="risk"
-                placeholder="Risk considered"
-                className="w-full border rounded p-2 text-sm"
-                value={formData.risk}
-                onChange={handleChange}
-              />
-
-              <textarea
-                name="evidence"
-                placeholder="Evidence reviewed"
-                className="w-full border rounded p-2 text-sm"
-                value={formData.evidence}
                 onChange={handleChange}
               />
 
