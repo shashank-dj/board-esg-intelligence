@@ -46,12 +46,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <span className="text-[10px] uppercase tracking-widest text-emerald-400/60 border border-emerald-500/20 px-3 py-1.5 rounded-full bg-emerald-500/5">
-            Powered by Claude AI
-          </span>
-        </div>
+
 
         {/* Mobile menu toggle */}
         <button
