@@ -32,7 +32,7 @@ export default function Footer() {
         </nav>
 
         <p className="text-xs text-white/20">
-          © {new Date().getFullYear()} BoardESG · Built with Claude AI
+          © {new Date().getFullYear()} BoardESG
         </p>
       </div>
     </footer>
